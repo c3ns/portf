@@ -1,0 +1,35 @@
+.home{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 200px;
+  .content-left{
+    width: 60%;
+    h2{
+      padding-top: 60px;
+      width: 80%;
+      font-size: 60px;
+      color: #fff;
+      line-height: 100px;
+    }
+  }
+  .content-right{
+    width: 40%;
+    .window{
+      width: 510px;
+      position: relative;
+      height: 510px;
+      margin: auto;
+      background: $bg_light;
+      //clip-path: polygon(0 170px, 170px 0, 510px 0,510px 340px,340px 510px,0 510px);
+      clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
+    }
+    .sample{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 530px;
+      height: 530px;
+      background: white;
+    }
+  }
+}

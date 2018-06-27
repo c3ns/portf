@@ -1,0 +1,48 @@
+.menu{
+  ul{
+      display: flex;
+      justify-content: space-around;
+    li{
+      width: 20%;
+      display: inline;
+      font-size: 20px;
+      line-height: 40px;
+      background: $bg_light;
+      position: relative;
+      transition: 0.3s;
+      @include btn;
+      &:hover{
+        color: #fff;
+        transition: 0.3s;
+      }
+      .txt{
+        position: relative;
+        z-index: 9999;
+      }
+      .upper{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $bg_dark;
+        width: 0%;
+        height: 25px;
+        z-index: 0;
+      }
+      .lower{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: $bg_dark;
+        width: 0%;
+        height: 15px;
+        z-index: 0;
+      }
+    }
+    .active{
+      background: $bg_dark;
+      color: #fff;
+    }
+  }
+
+
+}
