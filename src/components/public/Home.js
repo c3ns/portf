@@ -1,10 +1,10 @@
 import React from 'react';
 import wind from '../../common/wind.png';
 import Element from '../common/Element';
-
-
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 class Home extends React.Component{
+
     state={
         window: {
             winX: -130,
@@ -17,19 +17,32 @@ class Home extends React.Component{
         elements:[
         ]
     }
-    componentDidMount(){
+    componentWillMount(){
         let i = 0;
         const interval = setInterval(() =>{
             const show = this.state.show + this.state.content[i];
             const y = this.refs.underslash.offsetTop;
             const x = this.refs.underslash.offsetLeft
-            console.log(x);
-            i%2==0 && this.setState({elements: [...this.state.elements,{x,y}]})
+            i%2==0 && this.setState({elements: [...this.state.elements,{x,y,in:false}]})
             this.setState({show});
             i++;
             i>= this.state.content.length && clearInterval(interval);
         },50);
     }
+    handleAnimation = (index) => {
+        const elements = [...this.state.elements].map((el, i) => {
+            if (index === i) {
+                el.x = 50;
+                el.y = 50;
+            }
+            return el;
+        })
+
+        this.setState({elements})
+    }
+
+
+
     moveHandler = (e) => {
         let {mouseX,mouseY,winX,winY} = this.state.window;
         const x = mouseX-e.screenX;
@@ -49,12 +62,30 @@ class Home extends React.Component{
         const style={
             transform: `translate(${winX}px, ${winY}px)`,
         }
-        const elements = this.state.elements.map((el,i) => <Element key={i} el={el}/> )
+        const elements = this.state.elements.map((el,i) => {
+            return(
+                <CSSTransition
+                    timeout={10000}
+                    key={i}
+                    classNames="fade"
+                    onEntered={() => this.handleAnimation(i) }
+                >
+                    <Element el={el}/>
+                </CSSTransition>
+                );
+        })
         return(
             <div onMouseMove={this.moveHandler} className="home container">
                 <div className="content-left">
                     <h2>{this.state.show}<span ref="underslash">_</span></h2>
-                    {elements}
+
+                    <TransitionGroup>
+                        {elements}
+                    </TransitionGroup>
+
+
+
+
                 </div>
                 <div className="content-right">
                     <div className="window-border">

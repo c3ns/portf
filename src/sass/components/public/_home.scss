@@ -8,9 +8,11 @@
     h2{
       padding-top: 60px;
       width: 80%;
-      font-size: 60px;
+      font-size: 50px;
       color: #fff;
       line-height: 100px;
+      text-align: center;
+      text-justify: inter-word ;
     }
     span{
       animation-name: blink;
@@ -47,6 +49,17 @@
       height: 770px;
       transition: .1s;
     }
+
+  }
+  .fade-enter{
+    opacity: 0;
+  }
+  .fade-enter-active{
+    opacity: 1;
+    transition: all 1s ease-out;
+  }
+  .fade-enter-done{
+    opacity: 0;
 
   }
 }
