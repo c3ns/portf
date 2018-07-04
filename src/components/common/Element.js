@@ -1,17 +1,20 @@
 import React from 'react';
-import CSSTransition from 'react-transition-group';
+import { connect } from 'react-redux';
 
 const Element = (props) => {
-    const {x,y} = props.el;
+    const {x,y,name,color} = props.elements[props.id];
     const style={
         top: `${y}px`,
         left: `${x}px`
     }
     return(
-
-        <div className="element" style={style}>Element</div>
-
+        <div className={color+' element'} style={style}>{name}</div>
     )
 };
 
-export default Element
+const mapStateToProps = (state) => {
+    return {
+       elements: state.elements
+    }
+}
+export default connect(mapStateToProps)(Element)

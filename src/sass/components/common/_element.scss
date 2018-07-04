@@ -1,4 +1,27 @@
 .element{
   position: absolute;
+  color: red;
+  font-size: 22px;
+}
+.fade-enter{
+  opacity: 0.5;
+}
+.fade-enter-active{
+  opacity: 1;
+  transition: all .7s ease-out;
+}
+.fade-enter-done{
+  opacity: 1;
+  transition: all .4s ease-out;
+}
 
+//colors
+.blue{
+  color: blue;
+}
+.green{
+  color: green;
+}
+.white{
+  color: white;
 }
