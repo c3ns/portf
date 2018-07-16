@@ -8,13 +8,13 @@
 }
 .fade-enter-active{
   opacity: 1;
-  transition: all .7s ease-out;
+  transition: all 3s ease-out;
 }
 .fade-enter-done{
   opacity: 1;
   transition: all .4s ease-out;
+  z-index: 999;
 }
-
 //colors
 .blue{
   color: blue;
@@ -24,4 +24,30 @@
 }
 .white{
   color: white;
+}
+
+//material
+.material{
+  position: absolute;
+  top: 500px;
+  left: 660px;
+  font-size: 22px;
+  z-index: 1000;
+  background: white;
+}
+.material-enter-active{
+  opacity: 1;
+  transition: all 3s ease-out;
+}
+.material-big{
+  width: 10px;
+  height: 10px;
+}
+.material-medium{
+  width: 4px;
+  height: 4px;
+}
+.material-small{
+  width: 2px;
+  height: 2px;
 }
