@@ -1,8 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { connect } from 'react-redux';
-import Material from './Material';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 class Element extends React.Component{
 

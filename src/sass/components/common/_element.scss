@@ -8,12 +8,11 @@
 }
 .fade-enter-active{
   opacity: 1;
-  transition: all 3s ease-out;
+  transition: all 1s ease-out;
 }
 .fade-enter-done{
   opacity: 1;
   transition: all .4s ease-out;
-  z-index: 999;
 }
 //colors
 .blue{
