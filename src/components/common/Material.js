@@ -42,7 +42,6 @@ class Material extends React.Component{
             left:660
         }
         const mats = materials.map((m,i) => {
-            console.log('asd');
             return(
                 <CSSTransition
                     mountOnEnter

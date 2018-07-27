@@ -1,5 +1,5 @@
 import * as types from './all-types';
-
+//elements
 export function AddElement(element) {
     return {
         type: types.ADD_ELEMENT,
@@ -14,12 +14,12 @@ export function DeleteElements() {
 export function ChangeCoords(index,stage) {
     return (dispatch,getState) => {
         const {elements} = getState();
-        let x= Math.floor(Math.random()*(window.innerWidth-50));
-        let y= Math.floor(Math.random()*(window.innerHeight-50));
+        let x= Math.floor(Math.random()*(window.innerWidth)-400);
+        let y= Math.floor(Math.random()*(window.innerHeight)-300);
         let show = true;
         if(stage){
-            x=1200;
-            y=500;
+            x=800;
+            y=300;
             show=false;
         }
         const maped = elements.map((el,i) => {
@@ -34,5 +34,12 @@ export function ChangeCoords(index,stage) {
             type: types.CHANGE_ELEMENT_COORDS,
             payload: maped
         })
+    }
+}
+//page
+export function setTopPos(value) {
+    return {
+        type:types.SET_TOP_POSITION,
+        payload:value
     }
 }

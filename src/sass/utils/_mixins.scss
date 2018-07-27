@@ -2,3 +2,29 @@
   user-select: none;
   cursor: pointer;
 }
+@mixin cat_title{
+  font-size: 50px;
+  color: #fff;
+  transition: 1s;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+@mixin inputs{
+  margin-top: 50px;
+  padding:0 20px;
+  line-height: 50px;
+  box-sizing: border-box;
+  background: $bg_midlight;
+  border: 0px;
+  font-size: 22px;
+  color: $bg_light;
+  line-height: 50px;
+  text-transform: capitalize;
+}
+@mixin menu{
+  position: absolute;
+  background: $bg_dark;
+  width: 0%;
+  z-index: 0;
+  transition: all 0.3s linear;
+}

@@ -1,14 +1,21 @@
 .home{
-  min-height: calc(100vh - 40px);
-  display: flex;
-  justify-content: space-between;
-  padding-top: 200px;
+  position: relative;
+  min-height: 100vh;
   box-sizing: border-box;
+  .box{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-between;
+  }
   .content-left{
-    width: 60%;
+    width: 50%;
     h2{
-      padding-top: 60px;
-      width: 80%;
+      padding-top: 80px;
+      width: 100%;
       font-size: 50px;
       color: #fff;
       line-height: 100px;
@@ -16,25 +23,18 @@
       text-justify: inter-word ;
     }
     span{
-      animation-name: blink;
-      animation-duration: .6s;
-      animation-iteration-count: infinite;
-
+      animation: blink .6s infinite;
     }
   }
   .content-right{
-    width: 40%;
+    width: 50%;
     .window{
       width: 510px;
       height: 510px;
-      margin: auto;
       background: $bg_light;
       position: absolute;
       top: -2px;
       left: -2px;
-
-
-      //clip-path: polygon(0 170px, 170px 0, 510px 0,510px 340px,340px 510px,0 510px);
       clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
     }
     .window-border{
@@ -50,6 +50,5 @@
       height: 770px;
       transition: .1s;
     }
-
   }
 }

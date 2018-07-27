@@ -7,14 +7,17 @@ import thunk from 'redux-thunk';
 import App from './App';
 import menuReducer from './reducers/menuReducer';
 import elementsReducer from './reducers/elementsReducer';
-
-
-
+import projectsReducer from './reducers/projectsReducer';
+import experienceReducer from './reducers/experienceReducer';
+import pageReducer from './reducers/pageReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     menu: menuReducer,
     elements: elementsReducer,
+    projects: projectsReducer,
+    experience: experienceReducer,
+    page:pageReducer,
 });
 const store = createStore(
     rootReducer,

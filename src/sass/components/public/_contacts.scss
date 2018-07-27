@@ -1,3 +1,45 @@
 .Contacts{
-  min-height: 100vh;
+  margin-top: 70px;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+  h2{
+    @include cat_title;
+  }
+  p{
+    margin: 100px auto;
+    margin-bottom: 50px;
+    width: 60%;
+    color: $bg_light;
+    font-size: 22px;
+    line-height: 1.5;
+    span{
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+  .input-box{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  input{
+    margin-top: 50px;
+    width: 47%;
+    @include inputs;
+    &:nth-child(3){
+      width: 100%;
+    }
+  }
+  textarea{
+    margin-top: 50px;
+    width: 100%;
+    min-height: 200px;
+    @include inputs;
+  }
+  button{
+    @include btn;
+    @include inputs
+  }
 }
