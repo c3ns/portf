@@ -18,6 +18,15 @@ app.use(express.static(__dirname+'/public'));
 app.use('/', authRoutes);
 app.use('/', pageContentRoutes);
 
+if(process.env.NODE_ENV==='production'){
+    // static failu naudojimas
+    app.use(express.static(__dirname+'/client/build'));
+    app.get('/*', (req,res)=>{
+        res.sendFile(__dirname+'/client/build/index.html')
+    })
+}
+
+
 app.listen(process.env.DB_PORT, () => {
     console.log(`server is runing on port ${process.env.DB_PORT}`);
 });
