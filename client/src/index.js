@@ -10,9 +10,11 @@ import elementsReducer from './reducers/elementsReducer';
 import projectsReducer from './reducers/projectsReducer';
 import experienceReducer from './reducers/experienceReducer';
 import pageReducer from './reducers/pageReducer';
+import authReducer from './reducers/authReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
+    auth: authReducer,
     menu: menuReducer,
     elements: elementsReducer,
     projects: projectsReducer,

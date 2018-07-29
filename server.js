@@ -19,7 +19,7 @@ app.use('/', authRoutes);
 app.use('/', pageContentRoutes);
 
 if(process.env.NODE_ENV==='production'){
-    // static failu naudojimas
+    //static files
     app.use(express.static(__dirname+'/client/build'));
     app.get('/*', (req,res)=>{
         res.sendFile(__dirname+'/client/build/index.html')
