@@ -13,8 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 //static files
-app.use(express.static(__dirname+'/public'));
-
+app.use(express.static(__dirname+'/public/content'));
 app.use('/', authRoutes);
 app.use('/', pageContentRoutes);
 

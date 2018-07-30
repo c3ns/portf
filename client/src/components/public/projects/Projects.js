@@ -31,7 +31,7 @@ class Projects extends React.Component{
                     timeout={300}
                 >
                     <div key={i} className="proj">
-                        <img src={`http://localhost:3000/img/projects/${proj.img}.jpg`} alt=""/>
+                        <img src={`/projects/${proj.img}.jpg`} alt=""/>
                         <ProjectBox project={proj}/>
                     </div>
                 </CSSTransition>

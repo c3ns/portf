@@ -24,7 +24,7 @@ class Skill extends React.Component{
                     </div>}
 
                 </div>
-                <img src={`http://localhost:3000/img/skills/${img}.svg`} alt=""/>
+                <img src={`/skills/${img}.svg`} alt=""/>
             </div>
         )
     }

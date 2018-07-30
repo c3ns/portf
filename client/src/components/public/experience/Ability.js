@@ -23,7 +23,7 @@ class Ability extends React.Component{
                     onMouseLeave={() => this.onMouseHandle(false)}
                 >
                     <div className={show? 'img-box img-box-active': 'img-box'}>
-                        <img src={`http://localhost:3000/img/ability/${title}.svg`} alt=""/>
+                        <img src={`/ability/${title}.svg`} alt=""/>
                         <h4>{title}</h4>
                     </div>
                     {show && <div className="content"><p>{content}</p></div>}
