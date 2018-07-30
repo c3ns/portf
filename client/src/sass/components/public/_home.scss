@@ -36,6 +36,7 @@
       top: -2px;
       left: -2px;
       clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
+      -webkit-clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
     }
     .window-border{
       width: 512px;
@@ -43,6 +44,7 @@
       margin: auto;
       position: relative;
       clip-path: polygon(0 172px, 172px 0, 460px 0,514px 50px,512px 344px,344px 514px,50px 514px,0 461px );
+      -webkit-clip-path: polygon(0 172px, 172px 0, 460px 0,514px 50px,512px 344px,344px 514px,50px 514px,0 461px );
       background: #761800;
     }
     img{

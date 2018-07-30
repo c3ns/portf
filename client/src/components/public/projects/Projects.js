@@ -22,6 +22,7 @@ class Projects extends React.Component{
 
     }
     render(){
+        {console.log();}
         const projects = this.props.projects.map((proj,i) => {
             return(
                 <CSSTransition
