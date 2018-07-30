@@ -39,7 +39,7 @@
       transition: .4s;
       clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
       -webkit-clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
-      &:hover{
+      &:hover,:active{
         opacity: 1;
         background: rgba(0,0,0, .8);
         top: -5px;
