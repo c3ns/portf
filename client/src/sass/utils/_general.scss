@@ -5,6 +5,7 @@ body {
   font-weight:400;
   background: $bg_dark;
   position: relative;
+  overflow-x: hidden;
 }
 .clearfix:after {
   content: '';

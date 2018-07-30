@@ -18,6 +18,7 @@
     background: #761800;
     overflow: hidden;
     clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
+    -webkit-clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
     transition: 1s;
     opacity: 0;
     transform: translateY(100%);
@@ -37,6 +38,7 @@
       opacity: 0;
       transition: .4s;
       clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
+      -webkit-clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
       &:hover{
         opacity: 1;
         background: rgba(0,0,0, .8);
@@ -46,6 +48,7 @@
     }
     img{
       clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
+      -webkit-clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
       width: 100%;
       transition: .4s;
     }
