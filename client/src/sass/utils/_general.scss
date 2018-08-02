@@ -12,7 +12,7 @@ body {
   display: table;
   clear: both;
 }
-ul{
+li{
   list-style: none;
 }
 .container {
@@ -26,4 +26,8 @@ ul{
 .Projects .h2-enter-done{
   transform: translateX(0);
   opacity: 1;
+}
+h4{
+  margin-top: 20px;
+  font-size: 30px;
 }

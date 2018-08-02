@@ -5,8 +5,6 @@ import {logout} from "../../actions/authAction";
 import {animateScroll as scroll} from 'react-scroll'
 import {Link} from 'react-router-dom'
 
-
-
 class Header extends React.Component{
     state = {
         mouseEnter: [false,false,false,false,false],
@@ -47,11 +45,12 @@ class Header extends React.Component{
        });
        return(
            <header>
-               {this.props.isAdmin &&
-                    (<div className="admin-navi">
-                       <Link key="1" to='/admin'>Admin</Link>
-                       <Link key="2" to='/' onClick={this.props.logout}>Logout</Link>
-                   </div>)
+               {this.props.isAuth
+                   && (<div className="admin-navi">
+                        <Link key="1" to='/admin'>Admin</Link>
+                        <Link key="2" to='/' onClick={this.props.logout}>Logout</Link>
+                      </div>)
+
                }
                <div className={this.state.menu?'menu-opac menu container' : 'menu container'}>
                    <ul>
@@ -62,6 +61,6 @@ class Header extends React.Component{
        )
    }
 };
-const mapStateToProps = ({menu,page,auth:{isAdmin}}) => ({menu,page,isAdmin});
+const mapStateToProps = ({menu,page,auth:{isAuth}}) => ({menu,page,isAuth});
 
 export default connect(mapStateToProps,{handleMenu,logout})(Header);

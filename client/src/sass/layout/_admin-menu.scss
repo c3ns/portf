@@ -1,0 +1,47 @@
+nav{
+  width: 20%;
+  height: 80vh;
+  float: left;
+  box-sizing: border-box;
+  background: $bg_midlight;
+  border-radius: 10px 0 0 10px;
+  position: relative;
+  li{
+    width: 100%;
+    border-bottom: 1px solid $bg_dark;
+  }
+  a{
+    display: block;
+    padding-left: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 20px;
+    line-height: 60px;
+    text-transform: capitalize;
+    transition: .2s;
+    text-align: left;
+    &:hover{
+      background: $bg_light;
+    }
+  }
+  .active{
+    background: $bg_light;
+  }
+  .home-link{
+    line-height: 100px;
+    border-radius: 10px 0 0 0;
+    padding-left: 0;
+    text-align: center;
+    border-bottom: 1px solid $bg_dark;
+  }
+  .logout-link{
+    position: absolute;
+    bottom: 0;
+    padding-left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 0 0 0 10px;
+    border-top: 1px solid $bg_dark;
+  }
+}

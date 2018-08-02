@@ -1,19 +1,22 @@
-import * as types from '../actions/all-types';
+import {SET_TOP_POSITION,UPDATE_CONTENT} from '../actions/all-types';
 
 const page ={
-    position:[0]
+    position:[0],
+    home:'Lorem ipsum dolor sit amet, consectetur adipisicing',
+    contacts:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, hic optio qui quod sequi voluptatibus.'
 }
 
 const pageReducer = (state=page,action) => {
     switch (action.type) {
-        case types.SET_TOP_POSITION: {
+        case SET_TOP_POSITION: {
             const position = [...state.position,action.payload]
             return {...state,position}
         }
-        default:{
-            return state;
+        case UPDATE_CONTENT:{
+            const {title,content} = action.payload;
+            return {...state,[title]:content};
         }
-
+        default:return state;
     }
 }
 

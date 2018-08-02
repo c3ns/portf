@@ -8,15 +8,15 @@ class Content extends React.Component{
     state={
         elNames:['const','let','=>','class','{}','&&','[]','return'],
         elColors:['blue','green','white'],
-        content: 'Lorem ipsum dolor sit amet, consectetur adipisicing',
         show_content:'',
         showEl:true,
     }
     componentWillMount(){
-        const {content,elNames,elColors} = this.state;
+        const {elNames,elColors} = this.state;
+        const {home} = this.props;
         let i = 0;
         const interval = setInterval(() =>{
-            const show_content = [...this.state.show_content,content[i]];
+            const show_content = [...this.state.show_content,home[i]];
             this.setState({show_content});
 
             const name = elNames[Math.floor(Math.random()*(elNames.length))];
@@ -27,7 +27,7 @@ class Content extends React.Component{
             i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});
 
             i++;
-            i>= content.length && clearInterval(interval);
+            i>= home.length && clearInterval(interval);
         },50);
     }
     componentDidMount(){
@@ -66,6 +66,6 @@ class Content extends React.Component{
         )
     }
 }
-const mapStateToProps = ({elements}) => ({elements});
+const mapStateToProps = ({elements,page:{home}}) => ({elements,home});
 
 export default connect(mapStateToProps,actions)(Content)

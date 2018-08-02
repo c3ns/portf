@@ -7,13 +7,20 @@
 @import "utils/anim";
 
 @import "layout/header";
+@import "layout/admin-menu";
+
 
 @import "components/common/element";
+@import "components/common/login";
+
 @import "components/public/home";
 @import "components/public/experience";
 @import "components/public/projects";
 @import "components/public/contacts";
 
-@import "components/admin/login";
+@import "components/admin/admin";
+@import "components/admin/content";
+
+
 
 

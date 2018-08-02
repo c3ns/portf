@@ -1,0 +1,27 @@
+.Admin{
+  min-height: 80vh;
+  background: $bg_light;
+  margin-top: 100px;
+  border-radius: 10px;
+  .admin-content{
+    float: right;
+    width: 80%;
+  }
+  form{
+    display: flex;
+    flex-wrap: wrap;
+    input{
+      width: 100%;
+      @include inputs;
+    }
+    textarea{
+      width: 100%;
+
+      @include inputs;
+    }
+    button{
+      @include btn;
+      @include inputs;
+    }
+  }
+}
