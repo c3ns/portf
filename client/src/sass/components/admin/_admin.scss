@@ -19,6 +19,9 @@
 
       @include inputs;
     }
+    select{
+      @include inputs;
+    }
     button{
       @include btn;
       @include inputs;

@@ -28,8 +28,8 @@ class Experience extends React.Component{
         if(this.state.fillBar && posY < 800) this.setState({fillBar:false});
     }
     render(){
-        const {internals,skills} = this.props.experience;
-        const internalsComp = internals.map((int,i) => <Ability key={i} data={int}/>);
+        const {abilities,skills} = this.props.experience;
+        const abilitiesComp = abilities.map((int,i) => <Ability key={i} data={int}/>);
         const skillsComp = skills.map((sk,i) => <Skill key={i} data={sk} show={this.state.fillBar}/>);
 
         return(
@@ -49,7 +49,7 @@ class Experience extends React.Component{
                         timeout={300}
                     >
                         <div className="box container">
-                            {internalsComp}
+                            {abilitiesComp}
                         </div>
                     </CSSTransition>
                 </div>

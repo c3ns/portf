@@ -1,7 +1,5 @@
 .projects{
-  width: 80%;
-  margin: auto;
-  color: $bg_dark;
+  @include admin-content;
   .proj-box{
     margin-top: 50px;
     display: flex;
@@ -31,9 +29,7 @@
   }
 }
 .home-contacts{
-  width: 80%;
-  margin: auto;
-  color: $bg_dark;
+  @include admin-content;
   text-transform: capitalize;
   ul{
     margin-top: 30px;
@@ -60,5 +56,26 @@
   }
   textarea{
     height: 200px;
+  }
+}
+.skills{
+  @include admin-content;
+  form{
+    justify-content: space-around;
+    input{
+      width: 70%;
+    }
+    select {
+      width: 25%;
+    }
+  }
+}
+.abilities{
+  @include admin-content;
+  form{
+    select {
+      @include inputs;
+      width: 25%;
+    }
   }
 }

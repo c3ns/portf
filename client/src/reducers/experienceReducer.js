@@ -1,5 +1,8 @@
+import {UPDATE_SKILLS, UPDATE_ABILITY} from '../actions/all-types';
+
+
 const exp = {
-    internals: [
+    abilities: [
         {
             title: 'creative',
             content: 'Lorem i elit. Ipsa, pariatur.',
@@ -52,6 +55,22 @@ const exp = {
 
 const experienceReducer = (state=exp, action) => {
     switch (action.type){
+        case UPDATE_SKILLS:
+            const skills = state.skills.map((skill) => {
+                if(skill.img === action.payload.img)
+                    return action.payload;
+                else
+                    return skill;
+            });
+            return {...state,skills}
+        case UPDATE_ABILITY:
+            const abilities = state.abilities.map((ability) =>  {
+                if(ability.title === action.payload.title)
+                    return action.payload;
+                else
+                    return ability;
+            });
+            return {...state,abilities};
         default: return state;
     }
 }

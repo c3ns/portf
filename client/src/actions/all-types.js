@@ -17,3 +17,7 @@ export const ADD_PROJECT = 'ADD_PROJECT';
 
 //page content
 export const UPDATE_CONTENT = 'UPDATE_CONTENT';
+
+//experience
+export const UPDATE_SKILLS = 'UPDATE_SKILLS';
+export const UPDATE_ABILITY = 'UPDATE_ABILITY'
