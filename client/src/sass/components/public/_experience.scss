@@ -1,12 +1,17 @@
 .Experience{
   padding-top: 70px;
-  box-sizing: border-box;
+  @include mobile{
+    padding-top: 35px;
+  }
   @include mobile{
     padding-top:0;
   }
   h2{
     @include cat-title;
     margin-bottom: 100px;
+    @include mobile{
+      margin-bottom: 50px;
+    }
   }
 
   .skills-enter-done{
@@ -18,6 +23,7 @@
     margin-top: 70px;
     background: $bg_midlight;
     box-shadow: inset 0 0 20px 2px black;
+
     .box-enter-done{
       opacity: 1!important;
       transform: translateX(0)!important;
@@ -56,13 +62,13 @@
       transition: .6s;
       width: 500px;
       @include mobile{
-        width: 100%;
+        width: 95%;
       }
     }
     .ability-enter-done{
       width: 500px;
       @include mobile{
-        width: 100%;
+        width: 95%;
         h4{
           display: block;
         }
@@ -123,7 +129,7 @@
       margin-top: 25px;
       width: 100px;
       @include mobile{
-        width: 30px;
+        width: 60px;
         margin-top: 5px;
       }
     }
@@ -131,6 +137,9 @@
       margin-top: 25px;
       font-size: 22px;
       text-transform: capitalize;
+      @include mobile{
+        margin-top: 10px;
+      }
     }
   }
 
@@ -141,9 +150,12 @@
   .skills-box{
     display: flex;
     justify-content: space-between;
-    padding-top: 120px;
+    margin-top: 120px;
     opacity: 0;
     transition: 2s;
+    @include mobile{
+      margin-top: 60px;
+    }
     img{
       width: 60%;
       padding-top: 30px;

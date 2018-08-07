@@ -9,7 +9,8 @@ class Header extends React.Component{
     state = {
         mouseEnter: [false,false,false,false,false],
         width: ['0%','0%','0%','0%','0%'],
-        menu:false
+        menu:false,
+        mobileMenu:false
     }
     componentDidUpdate(){
         const {menu} = this.state;
@@ -25,8 +26,10 @@ class Header extends React.Component{
     onMenuClick = (i) => {
         this.props.handleMenu(i);
         scroll.scrollTo(this.props.page.position[i]);
+        this.state.mobileMenu && this.setState({mobileMenu:false})
     };
-   render(){
+    onMobileClick = () => this.setState({mobileMenu:!this.state.mobileMenu})
+    render(){
        const {list, active} = this.props.menu;
        const menuList = list.map((item,i) => {
            return(
@@ -57,8 +60,14 @@ class Header extends React.Component{
                        {menuList}
                    </ul>
                </div>
-               <i class="fas fa-bars"/>
+               <i className="fas fa-bars" onClick={this.onMobileClick}/>
                <div className="clearfix"/>
+               {this.state.mobileMenu &&
+                <div className="mobile-menu">
+                    <ul>
+                        {menuList}
+                    </ul>
+               </div>}
            </header>
        )
    }
