@@ -10,9 +10,15 @@
     transform: translate(-50%,-50%);
     display: flex;
     justify-content: space-between;
+    @include mobile{
+      flex-wrap: wrap;
+    }
   }
   .content-left{
     width: 50%;
+    @include mobile{
+      width: 100%;
+    }
     h2{
       padding-top: 80px;
       width: 100%;
@@ -21,6 +27,15 @@
       line-height: 100px;
       text-align: center;
       text-justify: inter-word ;
+      @include mobile {
+        font-size: 20px;
+        line-height: 50px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+      }
     }
     span{
       animation: blink .6s infinite;
@@ -28,6 +43,9 @@
   }
   .content-right{
     width: 50%;
+    @include mobile{
+      width: 100%;
+    }
     .window{
       width: 510px;
       height: 510px;
@@ -35,22 +53,34 @@
       position: absolute;
       top: -2px;
       left: -2px;
-      clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
-      -webkit-clip-path: polygon(0 170px, 170px 0, 460px 0,510px 50px,510px 340px,340px 510px,50px 510px,0 460px );
+      clip-path: polygon(0 33.33%, 33.33% 0, 92% 0, 100% 9.8%, 100% 66.67%, 66.67% 100%, 9.8% 100%, 0 92%);
+      -webkit-clip-path: polygon(0 33.33%, 33.33% 0, 92% 0, 100% 9.8%, 100% 66.67%, 66.67% 100%, 9.8% 100%, 0 92%);
+      @include mobile{
+        width: 280px;
+        height: 280px;
+      }
     }
     .window-border{
       width: 512px;
       height: 512px;
       margin: auto;
       position: relative;
-      clip-path: polygon(0 172px, 172px 0, 460px 0,514px 50px,512px 344px,344px 514px,50px 514px,0 461px );
-      -webkit-clip-path: polygon(0 172px, 172px 0, 460px 0,514px 50px,512px 344px,344px 514px,50px 514px,0 461px );
+      clip-path: polygon(0 33.46%, 33.46% 0, 89.5% 0, 100% 9.73%, 100% 66.93%, 66.93% 100%, 9.73% 100%,0 89.7% );
+      -webkit-clip-path: polygon(0 33.46%, 33.46% 0, 89.5% 0, 100% 9.73%, 100% 66.93%, 66.93% 100%, 9.73% 100%,0 89.7% );
       background: #761800;
+      @include mobile{
+        width: 282px;
+        height: 282px;
+      }
     }
     img{
       width: 770px;
       height: 770px;
       transition: .1s;
+      @include mobile{
+        width: 420px;
+        height: 420px;
+      }
     }
   }
 }

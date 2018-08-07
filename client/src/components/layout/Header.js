@@ -57,6 +57,8 @@ class Header extends React.Component{
                        {menuList}
                    </ul>
                </div>
+               <i class="fas fa-bars"/>
+               <div className="clearfix"/>
            </header>
        )
    }

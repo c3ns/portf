@@ -1,8 +1,26 @@
 header{
+  i{
+    display: none!important;
+    float: right;
+    padding: 10px;
+    font-size: 60px;
+    transition: .2s;
+    @include mobile{
+      display: block!important;
+    }
+    @include btn;
+    &:active{
+      transform: scale(0.95);
+    }
+
+  }
   .admin-navi{
     position: fixed;
     top: 10px;
     left: 10px;
+    @include mobile{
+      display: none;
+    }
     a{
       font-size: 20px;
       margin-left: 15px;
@@ -13,11 +31,15 @@ header{
     opacity: 0.3;
   }
   .menu{
+    width: 100%;
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
     z-index: 99;
+    @include mobile{
+      display: none;
+    }
     ul{
       display: flex;
       justify-content: space-around;
