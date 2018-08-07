@@ -1,61 +1,12 @@
-import {UPDATE_SKILLS, UPDATE_ABILITY} from '../actions/all-types';
+import * as types from '../actions/types';
 
-
-const exp = {
-    abilities: [
-        {
-            title: 'creative',
-            content: 'Lorem i elit. Ipsa, pariatur.',
-        },
-        {
-            title: 'dynamic',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, pariatur.',
-        },
-        {
-            title: 'fast',
-            content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, pariatur.',
-        },
-
-    ],
-    skills: [
-        {
-            img: 'css3',
-            level: 30
-        },
-        {
-            img: 'html5',
-            level: 50
-        },
-        {
-            img: 'js',
-            level: 70
-        },
-        {
-            img: 'node',
-            level: 50
-        },
-        {
-            img: 'php',
-            level: 20
-        },
-        {
-            img: 'ps',
-            level: 60
-        },
-        {
-            img: 'react',
-            level: 70
-        },
-        {
-            img: 'redux',
-            level: 100
-        },
-    ]
-};
-
-const experienceReducer = (state=exp, action) => {
+const experienceReducer = (state=null, action) => {
     switch (action.type){
-        case UPDATE_SKILLS:
+        case types.FETCH_EXPERIENCE:
+            return action.payload;
+        case types.ADD_SKILLS:
+            return {...state,skills:[...state.skills,action.payload]}
+        case types.UPDATE_SKILLS:
             const skills = state.skills.map((skill) => {
                 if(skill.img === action.payload.img)
                     return action.payload;
@@ -63,7 +14,9 @@ const experienceReducer = (state=exp, action) => {
                     return skill;
             });
             return {...state,skills}
-        case UPDATE_ABILITY:
+        case types.ADD_ABILITY:
+            return {...state,abilities:[...state.abilities,action.payload]}
+        case types.UPDATE_ABILITY:
             const abilities = state.abilities.map((ability) =>  {
                 if(ability.title === action.payload.title)
                     return action.payload;

@@ -1,4 +1,4 @@
-import * as types from './all-types';
+import * as types from './types';
 //elements
 export function AddElement(element) {
     return {

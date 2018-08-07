@@ -12,13 +12,13 @@ class Content extends React.Component{
         showEl:true,
     }
     componentWillMount(){
+
         const {elNames,elColors} = this.state;
-        const {home} = this.props;
+        const {homeTitle} = this.props;
         let i = 0;
         const interval = setInterval(() =>{
-            const show_content = [...this.state.show_content,home[i]];
+            const show_content = [...this.state.show_content,homeTitle[i]];
             this.setState({show_content});
-
             const name = elNames[Math.floor(Math.random()*(elNames.length))];
             const color = elColors[Math.floor(Math.random()*(elColors.length))];
 
@@ -27,7 +27,7 @@ class Content extends React.Component{
             i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});
 
             i++;
-            i>= home.length && clearInterval(interval);
+            i>= homeTitle.length && clearInterval(interval);
         },50);
     }
     componentDidMount(){
@@ -66,6 +66,6 @@ class Content extends React.Component{
         )
     }
 }
-const mapStateToProps = ({elements,page:{home}}) => ({elements,home});
+const mapStateToProps = ({elements,page:{homeTitle}}) => ({elements,homeTitle});
 
 export default connect(mapStateToProps,actions)(Content)

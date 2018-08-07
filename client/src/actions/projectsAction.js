@@ -1,20 +1,48 @@
-import {REMOVE_PROJECT, ADD_PROJECT, UPDATE_PROJECT} from './all-types';
+import * as types from './types';
+import axios from 'axios';
 
+export function fetchProjects() {
+    return async function (dispatch) {
+        try{
+            const res = await axios.get('/api/page-content');
+            dispatch({
+                type:types.FETCH_PROJECTS,
+                payload:res.data.projects
+            });
+        }catch(err){
+            console.log(err);
+        };
+    };
+};
 export function removeProject(projIndex) {
     return {
-        type:REMOVE_PROJECT,
+        type:types.REMOVE_PROJECT,
         payload:projIndex
-    }
+    };
 };
 export function addProject(proj) {
-    return {
-        type:ADD_PROJECT,
-        payload:proj
-    }
+    return async function (dispatch) {
+        try{
+            await axios.post('/api/page-content/projects', proj);
+            dispatch({
+                type:types.ADD_PROJECT,
+                payload: proj
+            });
+        }catch (err){
+            console.log(err);
+        }
+    };
 };
 export function editProject(proj) {
-    return {
-        type:UPDATE_PROJECT,
-        payload:proj
-    }
-}
+    return async function (dispatch) {
+        try{
+            await axios.post('/api/page-content/projects/update', proj);
+            dispatch({
+                type:types.UPDATE_PROJECT,
+                payload:proj
+            });
+        }catch (err){
+            console.log(err);
+        };
+    };
+};

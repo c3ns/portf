@@ -21,7 +21,7 @@ class Contacts extends React.Component {
         return(
             <div ref="contacts" className="Contacts container">
                 <h2>Contacts</h2>
-                <p>{this.props.contacts}</p>
+                <p>{this.props.contactTitle}</p>
                 <form
                     onSubmit={this.onSubmit}
                     className="input-box"
@@ -59,6 +59,6 @@ class Contacts extends React.Component {
     }
 };
 
-const mapStateToProps = ({page:{contacts}}) => ({contacts})
+const mapStateToProps = ({page:{contactTitle}}) => ({contactTitle})
 
 export default connect(mapStateToProps,{setTopPos})(Contacts)

@@ -1,4 +1,4 @@
-import * as types from '../actions/all-types';
+import * as types from '../actions/types';
 
 const elementsReducer = (state=[],action) => {
     switch (action.type){

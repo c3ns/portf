@@ -1,13 +1,13 @@
-import {SET_TOP_POSITION,UPDATE_CONTENT} from '../actions/all-types';
+import {SET_TOP_POSITION,UPDATE_CONTENT,FETCH_CONTENT} from '../actions/types';
 
 const page ={
     position:[0],
-    home:'Lorem ipsum dolor sit amet, consectetur adipisicing',
-    contacts:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, hic optio qui quod sequi voluptatibus.'
 }
 
 const pageReducer = (state=page,action) => {
     switch (action.type) {
+        case FETCH_CONTENT:
+            return {...state,...action.payload};
         case SET_TOP_POSITION: {
             const position = [...state.position,action.payload]
             return {...state,position}

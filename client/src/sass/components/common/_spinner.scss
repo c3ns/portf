@@ -1,0 +1,33 @@
+.Spinner{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.lds-dual-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: inline-block;
+  width: 256px;
+  height: 256px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 184px;
+  height: 184px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 20px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

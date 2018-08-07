@@ -6,24 +6,25 @@ class Content extends React.Component{
     state={
         titles:['home','contacts'],
         active:0,
-        content:''
+        content:'',
+        db:['homeTitle','contactTitle']
     };
     componentDidMount(){
         const {page} = this.props;
-        const {titles,active} = this.state;
-        this.setState({content:page[titles[active]]});
+        const {db,active} = this.state;
+        this.setState({content:page[db[active]]});
     };
     onActiveFormChange = (active) => {
         const {page} = this.props;
-        const {titles} = this.state;
-        this.setState({active,content:page[titles[active]]});
+        const {db} = this.state;
+        this.setState({active,content:page[db[active]]});
     };
     onChange = (e) => this.setState({content:e.target.value});
 
     onSubmit = (e) => {
         e.preventDefault();
-        const {content,active,titles}= this.state;
-        this.props.updateContent({title:titles[active],content});
+        const {content,active,db}= this.state;
+        this.props.updateContent({title:db[active],content});
     }
     render(){
         const {titles,active,content} = this.state;

@@ -20,8 +20,7 @@ const PageContentSchema = new Schema({
         content:{
             type:String,
             maxLength:100,
-        },
-        img:String
+        }
     }],
     skills:[{
         img:String,

@@ -4,7 +4,6 @@ import * as actions from '../../../actions/projectsAction';
 
 class Projects extends React.Component{
     state={
-        _id:'',
         link:'',
         content:'',
         img:'',
@@ -19,10 +18,7 @@ class Projects extends React.Component{
             ? this.props.editProject(project)
             : this.props.addProject(project);
     };
-    onEdit = (proj) => {
-        const {link,content,_id} = proj;
-        this.setState({_id,link,content,edit:true});
-    }
+    onEdit = (proj) => this.setState({...proj,edit:true});
     render(){
         const {link,content,edit} = this.state;
         const projects = this.props.projects.map((proj, i) => {

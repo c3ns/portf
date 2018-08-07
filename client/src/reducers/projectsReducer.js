@@ -1,34 +1,14 @@
-import {REMOVE_PROJECT,ADD_PROJECT,UPDATE_PROJECT} from '../actions/all-types';
+import {
+    REMOVE_PROJECT,
+    ADD_PROJECT,
+    UPDATE_PROJECT,
+    FETCH_PROJECTS
+} from '../actions/types';
 
-const projects=[
-        {
-            _id:1,
-            content:'Lorizzle ipsum nizzle sizzle amizzle, consectetuer mah nizzle away.',
-            link:'project 1',
-            img:'project1',
-        },
-        {
-            _id:2,
-            content:'Lorizzle ipsum nizzle sizzle amizzle, consectetuer mah nizzle away.',
-            link:'project 2',
-            img:'project1',
-        },
-        {
-            _id:3,
-            content:'Lorizzle ipsum nizzle sizzle amizzle, consectetuer mah nizzle away.',
-            link:'project 3',
-            img:'project1_img',
-        },
-        {
-            _id:4,
-            content:'Lorizzle ipsum nizzle sizzle amizzle, consectetuer mah nizzle away.',
-            link:'project 4',
-            img:'project1',
-        }
-    ]
 
-const projectsReducer = (state=projects, action) => {
+const projectsReducer = (state=null, action) => {
     switch (action.type){
+        case FETCH_PROJECTS: return action.payload;
         case REMOVE_PROJECT:
             return state.filter((proj,i) => {return i!== action.payload});
         case UPDATE_PROJECT:

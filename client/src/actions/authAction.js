@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT} from './all-types';
+import {LOG_IN, LOG_OUT} from './types';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 

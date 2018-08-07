@@ -9,12 +9,22 @@ import {connect} from 'react-redux';
 import * as actions from './actions/authAction';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-
-
-
+import {fetchProjects} from "./actions/projectsAction";
+import {fetchExperience} from "./actions/experienceAction";
+import {fetchContent} from "./actions/pageActions";
+import Spinner from "./components/common/Spinner";
 
 class App extends React.Component {
-  componentWillMount(){
+  state={
+      loading:true
+  }
+  async componentWillMount(){
+      await Promise.all([
+          this.props.fetchProjects(),
+          this.props.fetchExperience(),
+          this.props.fetchContent()]);
+
+      this.setState({loading:false});
       const token = localStorage.getItem('portf-token');
       if(!token) return;
       axios.defaults.headers.common['Authorization'] = token;
@@ -23,7 +33,9 @@ class App extends React.Component {
   }
 
   render() {
+    const {loading} = this.state;
     return (
+        loading? <Spinner/> :
         <BrowserRouter>
             <Switch>
                 <Route exact path='/' component={Public}/>
@@ -35,4 +47,7 @@ class App extends React.Component {
     );
   }
 }
-export default connect(null,actions)(App);
+
+const mapStateToProps = ({projects,page:{filled},experience}) => ({filled,projects,experience})
+
+export default connect(mapStateToProps,{...actions,fetchProjects,fetchExperience,fetchContent})(App);

@@ -1,4 +1,4 @@
-import * as types from '../actions/all-types';
+import * as types from '../actions/types';
 
 const menu = {
     list: ['home', 'skills', 'portfolio', 'contact me'],

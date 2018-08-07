@@ -20,11 +20,10 @@ router.get('/api/page-content', async (req,res) => {
 // @route   POST     /api/page-content
 // @acess   admin
 // @desc    set page content
-router.post('/api/page-content',adminAuth, async (req,res) => {
-    const {type} = req.body;
+router.post('/api/page-content/:type',adminAuth, async (req,res) => {
+    const {type} = req.params;
     try{
         const [page] = await  PageContent.find();
-        delete req.body.type;
 
         if(_.size(req.body) === 1)
             page[type] = req.body.content;
@@ -36,6 +35,26 @@ router.post('/api/page-content',adminAuth, async (req,res) => {
     }catch (err){
         console.log(err);
     }
-})
-
+});
+// @route   POST     /api/page-content/update
+// @acess   admin
+// @desc    update page content
+router.post('/api/page-content/:type/update',adminAuth, async (req,res) => {
+    const {type} = req.params;
+    try{
+        let [page] = await PageContent.find();
+        if(_.size(req.body) === 1)
+            page[type] = req.body[type]
+        else
+            page[type] = page[type].map((item) => {
+                if(item._id == req.body._id)
+                    return req.body;
+                return item
+            });
+        await page.save();
+        res.json({message:`${type} updated`});
+    }catch (err){
+        console.log(err);
+    }
+});
 module.exports = router;
