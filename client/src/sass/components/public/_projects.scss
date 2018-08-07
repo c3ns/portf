@@ -8,8 +8,10 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    @include mobile{
+      justify-content: space-around;
+    }
   }
-
   .proj{
     position: relative;
     margin-top: 100px;
@@ -28,6 +30,11 @@
     &:hover img{
       transform: translate(-5px,-5px);
       transition: .4s;
+    }
+    @include mobile{
+      margin-top: 50px;
+      width: 80%;
+      height: 150px;
     }
     .proj-box{
       width: 100%;
@@ -63,6 +70,10 @@
       opacity: 0;
       transition: 1s;
       @include btn;
+      @include mobile{
+        width: 60px;
+        line-height: 25px;
+      }
     }
     .btn-enter-done{
       opacity: 1;

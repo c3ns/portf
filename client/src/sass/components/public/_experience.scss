@@ -122,6 +122,10 @@
     img{
       margin-top: 25px;
       width: 100px;
+      @include mobile{
+        width: 30px;
+        margin-top: 5px;
+      }
     }
     h4{
       margin-top: 25px;
@@ -143,6 +147,9 @@
     img{
       width: 60%;
       padding-top: 30px;
+      @include mobile{
+        padding-top: 10px;
+      }
     }
     .skill-bar{
       position: relative;
@@ -151,6 +158,9 @@
       margin: auto;
       background: $bg_midlight;
       box-shadow: 0 0 20px 5px #000;
+      @include mobile{
+        height: 200px;
+      }
       .skill-active{
         position: absolute;
         bottom: 0;
@@ -177,11 +187,6 @@
           background-size: 100% 30px;
           animation: shift 2.5s linear infinite;
         }
-        @keyframes shift {
-          to{background-position: 100% 60px}
-
-        }
-
       }
       p{
         padding-top: 15px;
@@ -190,7 +195,6 @@
         color: $bg_dark;
       }
       .line{
-
         width: 90%;
         height: 5px;
         position: absolute;
