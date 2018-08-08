@@ -8,15 +8,16 @@ class ProjectBox extends React.Component{
     onMouseHandle = (show) => this.setState({show});
     render(){
         const {show} = this.state;
-        const {content} = this.props.project;
+        const {content,title} = this.props.project;
         return(
             <div
                 onMouseEnter={() => this.onMouseHandle(true)}
                 onMouseLeave={() => this.onMouseHandle(false)}
+                onTouchStart={() => this.onMouseHandle(!show)}
                 className="proj-box"
             >
                 <CSSTransition
-                    key="btn"
+                    key={`${title}-btn`}
                     in={show}
                     timeout={300}
                     classNames="btn"
@@ -24,7 +25,7 @@ class ProjectBox extends React.Component{
                     <div className="btn">Link</div>
                 </CSSTransition>
                 <CSSTransition
-                    key="cont"
+                    key={`${title}-btn`}
                     in={show}
                     timeout={300}
                     classNames="content"

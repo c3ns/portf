@@ -21,6 +21,7 @@ class Ability extends React.Component{
                     className="wrapper "
                     onMouseEnter={() => this.onMouseHandle(true)}
                     onMouseLeave={() => this.onMouseHandle(false)}
+                    onTouchStart={() => this.onMouseHandle(!show)}
                 >
                     <div className={show? 'img-box img-box-active': 'img-box'}>
                         <img src={`/ability/${title}.svg`} alt=""/>
