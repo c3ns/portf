@@ -8,6 +8,7 @@ class Projects extends React.Component{
         content:'',
         img:'',
         edit:'',
+        title:''
     }
     onChange = (e) => this.setState({[e.target.name]:e.target.value});
     onFormSubmit = (e) => {
@@ -20,11 +21,11 @@ class Projects extends React.Component{
     };
     onEdit = (proj) => this.setState({...proj,edit:true});
     render(){
-        const {link,content,edit} = this.state;
+        const {link,content,edit,title} = this.state;
         const projects = this.props.projects.map((proj, i) => {
             return (
                 <li key={i}>
-                    <p>{i+1}. {proj.link}</p>
+                    <p>{i+1}. {proj.title}</p>
                     <span onClick={() => this.props.removeProject(i)}>x</span>
                     <span onClick={() => this.onEdit(proj)}>edit</span>
                 </li>
@@ -39,10 +40,10 @@ class Projects extends React.Component{
                 </div>
                 <form onSubmit={this.onFormSubmit}>
                     <input
-                        name="link"
+                        name="title"
                         type="text"
-                        placeholder="Project link..."
-                        value={link}
+                        placeholder="Project title..."
+                        value={title}
                         onChange={this.onChange}
                     />
                     <textarea
@@ -51,7 +52,13 @@ class Projects extends React.Component{
                         value={content}
                         onChange={this.onChange}
                     />
-
+                    <input
+                        name="link"
+                        type="text"
+                        placeholder="Project link..."
+                        value={link}
+                        onChange={this.onChange}
+                    />
                     <button>{edit?'Edit':'Add'} Project</button>
                 </form>
             </div>

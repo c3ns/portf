@@ -25,9 +25,9 @@ class Public extends React.Component{
             <div>
                 <Header posY={posY}/>
                 <Home name="home"/>
-                <Experience id="skills" posY={posY}/>
-                <Projects name="portfolio" posY={posY}/>
-                <Contacts/>
+                <Experience posY={posY}/>
+                <Projects posY={posY}/>
+                <Contacts posY={posY}/>
             </div>
         )
     }

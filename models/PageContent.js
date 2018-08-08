@@ -33,7 +33,8 @@ const PageContentSchema = new Schema({
     projects:[{
         content:String,
         link:String,
-        img:String
+        img:String,
+        title:String
     }],
 });
 

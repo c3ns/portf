@@ -3,7 +3,10 @@
 
 # dependencies
 /node_modules
-/public
+/public/ability
+/public/content
+/public/skills
+/public/projects
 
 # testing
 /coverage

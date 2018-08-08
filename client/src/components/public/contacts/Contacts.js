@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {setTopPos} from "../../../actions/elementsAction";
+import {CSSTransition} from "react-transition-group";
 
 class Contacts extends React.Component {
     state={
@@ -8,9 +9,15 @@ class Contacts extends React.Component {
         email:'',
         subject:'',
         message:'',
+        title:false
     }
     componentDidMount(){
         this.props.setTopPos(this.refs.contacts.offsetTop);
+    }
+    componentDidUpdate(){
+        const {posY} = this.props;
+        if(!this.state.title && posY > this.refs.contacts.offsetTop - window.innerHeight+200) this.setState({title:true});
+        if(this.state.title && posY < this.refs.contacts.offsetTop - window.innerHeight+200) this.setState({title:false});
     }
     onInputChange = (e) => this.setState({[e.target.name]: e.target.value});
     onSubmit = (e) => {
@@ -20,7 +27,14 @@ class Contacts extends React.Component {
         const {name,email,subject,message} = this.state;
         return(
             <div ref="contacts" className="Contacts container">
-                <h2>Contacts</h2>
+                <CSSTransition
+                    in={this.state.title}
+                    key="h2"
+                    classNames="h2"
+                    timeout={300}
+                >
+                    <h2>Contacts</h2>
+                </CSSTransition>
                 <p>{this.props.contactTitle}</p>
                 <form
                     onSubmit={this.onSubmit}

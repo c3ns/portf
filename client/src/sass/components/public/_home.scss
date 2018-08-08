@@ -1,16 +1,9 @@
 .home{
   position: relative;
-  min-height: 100vh;
-  box-sizing: border-box;
-  @include tablet-portrait{
-    min-height: 80vh;
-  }
   .box{
+    margin-top: 15%;
+    margin-bottom: 15%;
     width: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     display: flex;
     justify-content: space-between;
     @include mobile{
