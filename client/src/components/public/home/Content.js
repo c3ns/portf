@@ -20,22 +20,24 @@ class Content extends React.Component{
         const interval = setInterval(() =>{
             const show_content = [...this.state.show_content,homeTitle[i]];
             this.setState({show_content});
-            const name = elNames[Math.floor(Math.random()*(elNames.length))];
-            const color = elColors[Math.floor(Math.random()*(elColors.length))];
 
-            const y = this.refs.underslash.offsetTop;
-            const x = this.refs.underslash.offsetLeft;
-            !isMobile &&
+            if(!isMobile){
+                const name = elNames[Math.floor(Math.random()*(elNames.length))];
+                const color = elColors[Math.floor(Math.random()*(elColors.length))];
+
+                const y = this.refs.underslash.offsetTop;
+                const x = this.refs.underslash.offsetLeft;
                 i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});
-
+            }
             i++;
             i>= homeTitle.length && clearInterval(interval);
         },50);
     }
     componentDidMount(){
-        setTimeout(() => {
-            this.setState({showEl:false})
-        },7000)
+        !isMobile &&
+            setTimeout(() => {
+                this.setState({showEl:false})
+            },7000)
     }
     animationEntering = (index) => this.props.ChangeCoords(index,false);
     animationEntered = (index) => this.props.ChangeCoords(index,true);
