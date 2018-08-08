@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Element from '../../common/Element';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import * as actions from '../../../actions/elementsAction';
+import {isMobile} from 'react-device-detect';
 
 class Content extends React.Component{
     state={
@@ -24,7 +25,8 @@ class Content extends React.Component{
 
             const y = this.refs.underslash.offsetTop;
             const x = this.refs.underslash.offsetLeft;
-            i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});
+            !isMobile &&
+                i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});
 
             i++;
             i>= homeTitle.length && clearInterval(interval);
