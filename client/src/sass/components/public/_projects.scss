@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    @include mobile{
+    @include tablet-portrait{
       justify-content: space-around;
     }
   }
@@ -33,6 +33,9 @@
     &:hover img{
       transform: translate(-5px,-5px);
       transition: .4s;
+    }
+    @include tablet-portrait{
+      width: 45%;
     }
     @include mobile{
       margin-top: 50px;

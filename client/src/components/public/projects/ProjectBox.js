@@ -16,6 +16,7 @@ class ProjectBox extends React.Component{
                 className="proj-box"
             >
                 <CSSTransition
+                    key="btn"
                     in={show}
                     timeout={300}
                     classNames="btn"
@@ -23,6 +24,7 @@ class ProjectBox extends React.Component{
                     <div className="btn">Link</div>
                 </CSSTransition>
                 <CSSTransition
+                    key="cont"
                     in={show}
                     timeout={300}
                     classNames="content"

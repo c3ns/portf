@@ -20,11 +20,9 @@
     background: $bg_midlight;
     box-shadow: inset 0 0 20px 2px black;
     overflow-x: hidden;
-
     .box-enter-done{
       opacity: 1!important;
       transform: translateX(0)!important;
-
     }
     .box{
       display: flex;
@@ -33,6 +31,9 @@
       opacity: 0;
       transform: translateX(100%);
       transition: 1s;
+      @include tablet-portrait{
+        padding: 20px 10px;
+      }
       @include mobile{
         display: block;
         padding: 10px 5px;
@@ -46,6 +47,12 @@
       background: $bg_light;
       border-radius: 10px;
       box-shadow: 0 0 20px 2px black;
+      @include tablet-portrait{
+        height: 150px;
+        h4{
+          font-size: 16px;
+        }
+      }
       @include mobile{
         margin: 20px auto;
         width: 45%;
@@ -58,12 +65,18 @@
     .ability-enter-active{
       transition: .6s;
       width: 500px;
+      @include tablet-portrait{
+        width: 50%;
+      }
       @include mobile{
         width: 95%;
       }
     }
     .ability-enter-done{
       width: 500px;
+      @include tablet-portrait{
+        width: 50%;
+      }
       @include mobile{
         width: 95%;
         h4{
@@ -100,12 +113,11 @@
       p{
         font-size: 20px;
         line-height:25px;
-        @include mobile{
+        @include tablet-portrait{
           font-size: 14px;
         }
       }
       .contnet-disabled{
-
         animation: content-disable 1s linear forwards;
       }
     }
@@ -125,7 +137,7 @@
     img{
       margin-top: 25px;
       width: 100px;
-      @include mobile{
+      @include tablet-portrait{
         width: 60px;
         margin-top: 5px;
       }
@@ -157,8 +169,8 @@
     img{
       width: 60%;
       padding-top: 30px;
-      @include mobile{
-        padding-top: 10px;
+      @include tablet-portrait{
+        padding-top: 15px;
       }
     }
     .skill-bar{
@@ -178,7 +190,6 @@
         width: 100%;
         background: #117600;
         box-shadow: inset 0 0 20px 5px #18c900;
-
         &:before{
           transform: scale(-1);
           position: absolute;
@@ -203,9 +214,12 @@
         font-size: 20px;
         font-weight: 700;
         color: $bg_dark;
+        @include tablet-portrait{
+          font-size: 16px;
+          font-weight: 500;
+        }
         @include mobile{
           font-size: 10px;
-          font-weight: 500;
         }
       }
       .line{

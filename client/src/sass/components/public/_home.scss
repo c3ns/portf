@@ -2,6 +2,9 @@
   position: relative;
   min-height: 100vh;
   box-sizing: border-box;
+  @include tablet-portrait{
+    min-height: 80vh;
+  }
   .box{
     width: 100%;
     position: absolute;
@@ -24,12 +27,17 @@
       width: 100%;
       font-size: 50px;
       color: #fff;
-      line-height: 100px;
+      line-height: 1.5;
       text-align: center;
       text-justify: inter-word ;
+      @include tablet-landscape{
+        font-size: 38px;
+      }
+      @include tablet-portrait{
+        font-size: 32px;
+      }
       @include mobile {
         font-size: 20px;
-        line-height: 50px;
         position: absolute;
         top: 20%;
         left: 50%;
@@ -55,6 +63,14 @@
       left: -2px;
       clip-path: polygon(0 33.33%, 33.33% 0, 92% 0, 100% 9.8%, 100% 66.67%, 66.67% 100%, 9.8% 100%, 0 92%);
       -webkit-clip-path: polygon(0 33.33%, 33.33% 0, 92% 0, 100% 9.8%, 100% 66.67%, 66.67% 100%, 9.8% 100%, 0 92%);
+      @include tablet-landscape{
+        width: 400px;
+        height: 400px;
+      }
+      @include tablet-portrait{
+        width: 340px;
+        height: 340px;
+      }
       @include mobile{
         width: 280px;
         height: 280px;
@@ -68,6 +84,14 @@
       clip-path: polygon(0 33.46%, 33.46% 0, 89.5% 0, 100% 9.73%, 100% 66.93%, 66.93% 100%, 9.73% 100%,0 89.7% );
       -webkit-clip-path: polygon(0 33.46%, 33.46% 0, 89.5% 0, 100% 9.73%, 100% 66.93%, 66.93% 100%, 9.73% 100%,0 89.7% );
       background: #761800;
+      @include tablet-landscape{
+        width: 402px;
+        height: 402px;
+      }
+      @include tablet-portrait{
+        width: 342px;
+        height: 342px;
+      }
       @include mobile{
         width: 282px;
         height: 282px;
@@ -77,6 +101,14 @@
       width: 770px;
       height: 770px;
       transition: .1s;
+      @include tablet-landscape{
+        width: 604px;
+        height: 604px;
+      }
+      @include tablet-portrait{
+        width: 513px;
+        height: 513px;
+      }
       @include mobile{
         width: 420px;
         height: 420px;
