@@ -50,6 +50,7 @@
       left: 0;
       opacity: 0;
       transition: .4s;
+      overflow-x:hidden;
       clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
       -webkit-clip-path: polygon(0 20%, 14% 0, 94.5% 0,100% 8%,100% 80%,86% 100%,5.5% 100%, 0 92%);
       &:active{
@@ -81,6 +82,7 @@
       left: 450px;
       opacity: 0;
       transition: 1s;
+      z-index: 99;
       @include btn;
       @include mobile{
         width: 60px;
@@ -88,7 +90,7 @@
       }
     }
     .btn-enter-done{
-      opacity: 1;
+      opacity: 1!important;
       left: 20px;
     }
     .content{
@@ -100,9 +102,10 @@
       color: white;
       opacity: 0;
       transition: 1.5s;
+      z-index: 99;
     }
     .content-enter-done{
-      opacity: 1;
+      opacity: 1!important;
       top: 50px;
     }
   }
