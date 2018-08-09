@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {setTopPos} from "../../../actions/elementsAction";
 import {CSSTransition} from "react-transition-group";
+import {addLetter} from '../../../actions/mailAction';
 
 class Contacts extends React.Component {
     state={
@@ -22,6 +23,10 @@ class Contacts extends React.Component {
     onInputChange = (e) => this.setState({[e.target.name]: e.target.value});
     onSubmit = (e) => {
         e.preventDefault();
+        const mail = this.state;
+        delete mail.title;
+        this.props.addLetter(mail)
+        this.setState({...this.state,name:'',email:'',subject:'',message:''});
     }
     render(){
         const {name,email,subject,message} = this.state;
@@ -75,4 +80,4 @@ class Contacts extends React.Component {
 
 const mapStateToProps = ({page:{contactTitle}}) => ({contactTitle})
 
-export default connect(mapStateToProps,{setTopPos})(Contacts)
+export default connect(mapStateToProps,{setTopPos,addLetter})(Contacts)

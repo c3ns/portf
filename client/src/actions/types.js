@@ -26,3 +26,6 @@ export const UPDATE_SKILLS = 'UPDATE_SKILLS';
 export const ADD_SKILLS = 'ADD_SKILLS';
 export const UPDATE_ABILITY = 'UPDATE_ABILITY';
 export const ADD_ABILITY = 'ADD_ABILITY';
+
+//mail
+export const ADD_MAIL = 'ADD_MAIL';

@@ -4,6 +4,7 @@ import Home from './home/Home';
 import Experience from './experience/Experience';
 import Projects from './projects/Projects';
 import Contacts from './contacts/Contacts';
+import Footer from "../layout/Footer";
 
 class Public extends React.Component{
     state={
@@ -28,6 +29,7 @@ class Public extends React.Component{
                 <Experience posY={posY}/>
                 <Projects posY={posY}/>
                 <Contacts posY={posY}/>
+                <Footer/>
             </div>
         )
     }

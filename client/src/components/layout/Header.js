@@ -60,8 +60,9 @@ class Header extends React.Component{
                        {menuList}
                    </ul>
                </div>
-               <i className="fas fa-bars" onClick={this.onMobileClick}/>
-               <div className="clearfix"/>
+               <div className="mobile-bars">
+                   <i className="fas fa-bars" onClick={this.onMobileClick}/>
+               </div>
                {this.state.mobileMenu &&
                 <div className="mobile-menu">
                     <ul>

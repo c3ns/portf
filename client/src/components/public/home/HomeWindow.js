@@ -1,5 +1,5 @@
 import React from 'react';
-import wind from '../../../common/wind.png';
+import wind from '../../../common/wind.jpg';
 
 class HomeWindow extends React.Component{
     state={

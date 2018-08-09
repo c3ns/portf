@@ -7,6 +7,9 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+textarea{
+  font-family: 'Roboto',sans-serif;
+}
 .clearfix:after {
   content: '';
   display: table;
@@ -34,4 +37,10 @@ li{
 h4{
   margin-top: 20px;
   font-size: 30px;
+}
+button{
+  transition: .1s;
+  &:active{
+    transform: scale(0.95);
+  }
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const authRoutes = require('./routes/authRoutes');
 const pageContentRoutes = require('./routes/pageContentRoutes');
+const mailRoutes = require('./routes/mailRoutes');
 require('dotenv').config();
 require('./db/dbConnection')();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public/content'));
 app.use('/', authRoutes);
 app.use('/', pageContentRoutes);
+app.use('/', mailRoutes);
 
 if(process.env.NODE_ENV==='production'){
     //static files
