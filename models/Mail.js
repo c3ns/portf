@@ -5,13 +5,13 @@ const MailSchema = new Schema({
     name:{
         type:String,
         required:true,
-        maxlength:50,
+        maxlength:40,
         minlength:3
     },
     email:{
         type:String,
         required:true,
-        maxlength:50,
+        maxlength:40,
         minlength:3
     },
     subject:{
