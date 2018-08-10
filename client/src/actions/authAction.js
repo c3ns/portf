@@ -1,4 +1,4 @@
-import {LOG_IN, LOG_OUT} from './types';
+import {LOG_IN, LOG_OUT, GET_ERRORS} from './types';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
@@ -17,7 +17,10 @@ export function login(data,history) {
             });
              history.push('/admin');
         }catch(err) {
-            console.log(err);
+            dispatch({
+                type:GET_ERRORS,
+                payload:err.response.data
+            })
         }
     }
 }

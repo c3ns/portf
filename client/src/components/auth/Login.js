@@ -15,6 +15,7 @@ class Login extends React.Component{
 
     render(){
         const {email,password} = this.state;
+        const {errors} = this.props;
         return(
             <div className="Login">
                 <form onSubmit={this.onFormSubmit}>
@@ -25,6 +26,7 @@ class Login extends React.Component{
                         value={email}
                         onChange={this.onInputChange}
                     />
+                    <p className="errors">{errors.email}</p>
                     <input
                         type="password"
                         placeholder="Password..."
@@ -32,11 +34,14 @@ class Login extends React.Component{
                         value={password}
                         onChange={this.onInputChange}
                     />
+                    <p className="errors">{errors.password}</p>
                     <button>Log-in</button>
+                    <p className="errors">{errors.login}</p>
                 </form>
             </div>
-        )
-    }
+        );
+    };
 };
+const mapStateToProps = ({errors}) => ({errors});
 
-export default connect(null,actions)(Login)
+export default connect(mapStateToProps,actions)(Login);

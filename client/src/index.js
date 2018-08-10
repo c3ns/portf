@@ -11,6 +11,7 @@ import projectsReducer from './reducers/projectsReducer';
 import experienceReducer from './reducers/experienceReducer';
 import pageReducer from './reducers/pageReducer';
 import authReducer from './reducers/authReducer';
+import errorsReducer from './reducers/errorsReducer';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
     projects: projectsReducer,
     experience: experienceReducer,
     page:pageReducer,
+    errors:errorsReducer
 });
 const store = createStore(
     rootReducer,

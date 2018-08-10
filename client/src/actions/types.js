@@ -1,5 +1,10 @@
 // menu
 export const HANDLE_MENU = 'HANDLE_MENU';
+
+//errors
+export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+
 //elements
 export const ADD_ELEMENT = 'ADD_ELEMENT';
 export const DELETE_ELEMENTS = 'DELETE_ELEMENTS';

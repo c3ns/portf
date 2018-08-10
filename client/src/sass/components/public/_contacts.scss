@@ -5,7 +5,7 @@
   h2{
     @include cat_title;
   }
-  p{
+  p.title{
     margin: 100px auto;
     margin-bottom: 50px;
     width: 60%;
@@ -23,14 +23,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    .wrapper{
+      width: 47%;
+    }
   }
   input{
     margin-top: 50px;
-    width: 47%;
+    width: 100%;
     @include inputs;
-    &:nth-child(3){
-      width: 100%;
-    }
   }
   textarea{
     margin-top: 50px;
@@ -40,6 +40,9 @@
   }
   button{
     @include btn;
-    @include inputs
+    @include inputs;
+  }
+  .errors{
+    text-align: left;
   }
 }

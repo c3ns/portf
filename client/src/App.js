@@ -14,6 +14,7 @@ import {fetchExperience} from "./actions/experienceAction";
 import {fetchContent} from "./actions/pageActions";
 import Spinner from "./components/common/Spinner";
 
+
 class App extends React.Component {
   state={
       loading:true

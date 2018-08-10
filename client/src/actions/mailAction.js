@@ -8,9 +8,12 @@ export function addLetter(mail) {
             dispatch({
                 type:types.ADD_MAIL,
                 payload:mail
-            })
+            });
         }catch (err){
-            console.log(err);
-        }
-    }
-}
+            dispatch({
+                type:types.GET_ERRORS,
+                payload:err.response.data
+            });
+        };
+    };
+};

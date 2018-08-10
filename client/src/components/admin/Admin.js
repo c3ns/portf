@@ -12,7 +12,7 @@ import {logout} from '../../actions/authAction';
 const Admin = (props) =>  {
     return(
         <div className="Admin container">
-            <AdminMenu logout={this.props.logout}/>
+            <AdminMenu logout={props.logout}/>
             <div className="admin-content">
                 <Route path="/admin/abilities" component={Abilities}/>
                 <Route path="/admin/skills" component={Skills}/>

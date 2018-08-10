@@ -22,9 +22,9 @@ class Content extends React.Component{
             this.setState({show_content});
 
             if(!isMobile){
+                if(!this.refs.underslash) return
                 const name = elNames[Math.floor(Math.random()*(elNames.length))];
                 const color = elColors[Math.floor(Math.random()*(elColors.length))];
-
                 const y = this.refs.underslash.offsetTop;
                 const x = this.refs.underslash.offsetLeft;
                 i%2===0 && this.props.AddElement({id:Math.random(),x,y,name,color,show:true});

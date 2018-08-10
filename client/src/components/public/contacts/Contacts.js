@@ -30,6 +30,7 @@ class Contacts extends React.Component {
     }
     render(){
         const {name,email,subject,message} = this.state;
+        const {errors} = this.props;
         return(
             <div ref="contacts" className="Contacts container">
                 <CSSTransition
@@ -40,25 +41,31 @@ class Contacts extends React.Component {
                 >
                     <h2>Contacts</h2>
                 </CSSTransition>
-                <p>{this.props.contactTitle}</p>
+                <p className="title">{this.props.contactTitle}</p>
                 <form
                     onSubmit={this.onSubmit}
                     className="input-box"
                 >
-                    <input
-                        type="text"
-                        name="name"
-                        value={name}
-                        placeholder="name"
-                        onChange={this.onInputChange}
-                    />
-                    <input
-                        type="text"
-                        name="email"
-                        value={email}
-                        placeholder="email"
-                        onChange={this.onInputChange}
-                    />
+                    <div className="wrapper">
+                        <input
+                            type="text"
+                            name="name"
+                            value={name}
+                            placeholder="name"
+                            onChange={this.onInputChange}
+                        />
+                        <p className="errors">{errors.name}</p>
+                    </div>
+                    <div className="wrapper">
+                        <input
+                            type="text"
+                            name="email"
+                            value={email}
+                            placeholder="email"
+                            onChange={this.onInputChange}
+                        />
+                        <p className="errors">{errors.email}</p>
+                    </div>
                     <input
                         type="text"
                         name="subject"
@@ -66,11 +73,13 @@ class Contacts extends React.Component {
                         placeholder="subject"
                         onChange={this.onInputChange}
                     />
+                    <p className="errors">{errors.subject}</p>
                     <textarea
                         name="message"
                         placeholder="message"
                         onChange={this.onInputChange}
                         value={message}/>
+                    <p className="errors">{errors.message}</p>
                     <button>Send</button>
                 </form>
             </div>
@@ -78,6 +87,6 @@ class Contacts extends React.Component {
     }
 };
 
-const mapStateToProps = ({page:{contactTitle}}) => ({contactTitle})
+const mapStateToProps = ({page:{contactTitle},errors}) => ({contactTitle,errors})
 
 export default connect(mapStateToProps,{setTopPos,addLetter})(Contacts)

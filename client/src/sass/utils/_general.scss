@@ -44,3 +44,10 @@ button{
     transform: scale(0.95);
   }
 }
+p.errors{
+  color: #a80006;
+  margin-top: 5px;
+  &::first-letter{
+    text-transform: capitalize;
+  }
+}
