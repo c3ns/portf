@@ -17,7 +17,7 @@
     }
     h2{
       padding-top: 80px;
-      width: 100%;
+      width: 90%;
       font-size: 50px;
       color: #fff;
       line-height: 1.5;
@@ -30,9 +30,10 @@
         font-size: 32px;
       }
       @include mobile {
+        width: 60%;
         font-size: 20px;
         position: absolute;
-        top: 20%;
+        top: 25%;
         left: 50%;
         transform: translate(-50%,-50%);
         z-index: 99;

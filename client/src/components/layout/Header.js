@@ -2,8 +2,9 @@ import React from 'react';
 import {connect} from "react-redux";
 import {handleMenu} from '../../actions/menuAction';
 import {logout} from "../../actions/authAction";
-import {animateScroll as scroll} from 'react-scroll'
-import {Link} from 'react-router-dom'
+import {animateScroll as scroll} from 'react-scroll';
+import {Link} from 'react-router-dom';
+import RBC from 'react-body-classname';
 
 class Header extends React.Component{
     state = {
@@ -28,7 +29,9 @@ class Header extends React.Component{
         scroll.scrollTo(this.props.page.position[i]);
         this.state.mobileMenu && this.setState({mobileMenu:false})
     };
-    onMobileClick = () => this.setState({mobileMenu:!this.state.mobileMenu})
+    onMobileClick = () => {
+        this.setState({mobileMenu:!this.state.mobileMenu})
+    }
     render(){
        const {list, active} = this.props.menu;
        const menuList = list.map((item,i) => {
@@ -64,11 +67,14 @@ class Header extends React.Component{
                    <i className="fas fa-bars" onClick={this.onMobileClick}/>
                </div>
                {this.state.mobileMenu &&
-                <div className="mobile-menu">
-                    <ul>
-                        {menuList}
-                    </ul>
-               </div>}
+                    <RBC className="overflow">
+                        <div className="mobile-menu">
+                            <ul>
+                                {menuList}
+                            </ul>
+                        </div>
+                    </RBC>
+                }
            </header>
        )
    }
