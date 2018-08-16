@@ -2,7 +2,8 @@ import React from 'react';
 import ProjectBox from './ProjectBox';
 import {connect} from 'react-redux'
 import {setTopPos} from '../../../actions/elementsAction';
-import {CSSTransition} from 'react-transition-group'
+import {CSSTransition} from 'react-transition-group';
+import {handleMenu} from "../../../actions/menuAction";
 
 class Projects extends React.Component{
     state={
@@ -14,6 +15,8 @@ class Projects extends React.Component{
     }
     componentDidUpdate(){
         const {posY} = this.props;
+        const {offsetTop, offsetHeight} = this.refs.projects;
+        if(posY > offsetTop-200 && posY < offsetTop+offsetHeight/2) this.props.handleMenu(2);
         if(!this.state.title && posY > this.refs.projects.offsetTop - window.innerHeight-100) this.setState({title:true});
         if(!this.state.projects && posY > this.refs.projects.offsetTop - window.innerHeight+300) this.setState({projects:true});
 
@@ -57,4 +60,4 @@ class Projects extends React.Component{
 };
 const mapStateToProps = ({projects}) => ({projects});
 
-export default connect(mapStateToProps,{setTopPos})(Projects);
+export default connect(mapStateToProps,{setTopPos,handleMenu})(Projects);

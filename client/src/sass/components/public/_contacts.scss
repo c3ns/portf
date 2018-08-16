@@ -1,7 +1,6 @@
 .Contacts{
-  margin-top: 70px;
+  padding-top: 70px;
   padding-bottom: 100px;
-  box-sizing: border-box;
   h2{
     @include cat_title;
   }
@@ -19,7 +18,8 @@
       width: 80%;
     }
     @include mobile{
-      font-size: 18px;
+      margin-top: 50px;
+      font-size: 16px;
     }
   }
   .input-box{
@@ -48,6 +48,7 @@
     @include inputs;
     @include mobile{
       margin-top: 30px;
+      min-height: 120px;
     }
   }
   button{

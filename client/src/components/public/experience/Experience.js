@@ -4,6 +4,7 @@ import Ability from './Ability';
 import {connect} from 'react-redux';
 import {CSSTransition} from 'react-transition-group';
 import {setTopPos} from "../../../actions/elementsAction";
+import {handleMenu} from '../../../actions/menuAction';
 
 class Experience extends React.Component{
     state={
@@ -11,12 +12,17 @@ class Experience extends React.Component{
         skills:false,
         fillBar:false,
         ability:false,
+        menu:false
     }
     componentDidMount(){
         this.props.setTopPos(this.refs.experience.offsetTop);
     }
     componentDidUpdate(){
         const {posY} = this.props;
+        const {offsetTop, offsetHeight} = this.refs.experience;
+        if(posY > offsetTop-200 && posY < offsetTop+offsetHeight/2) {
+            this.props.handleMenu(1);
+        };
         if(!this.state.title && posY > 200) this.setState({title:true});
         if(!this.state.ability && posY > 200) this.setState({ability:true});
         if(!this.state.skills && posY > 600) this.setState({skills:true});
@@ -70,4 +76,4 @@ class Experience extends React.Component{
 
 const mapStateToProps = ({experience}) => ({experience})
 
-export default connect(mapStateToProps,{setTopPos})(Experience)
+export default connect(mapStateToProps,{setTopPos,handleMenu})(Experience)

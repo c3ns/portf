@@ -5,6 +5,7 @@ import {CSSTransition} from "react-transition-group";
 import {addLetter} from '../../../actions/mailAction';
 import {animateScroll as scroll} from 'react-scroll';
 import {isMobile} from 'react-device-detect';
+import {handleMenu} from '../../../actions/menuAction';
 
 class Contacts extends React.Component {
     state={
@@ -18,7 +19,9 @@ class Contacts extends React.Component {
         this.props.setTopPos(this.refs.contacts.offsetTop);
     }
     componentDidUpdate(){
+        const {offsetTop, offsetHeight} = this.refs.contacts;
         const {posY} = this.props;
+        if(posY > offsetTop-200 && posY < offsetTop+offsetHeight/2) this.props.handleMenu(3);
         if(!this.state.title && posY > this.refs.contacts.offsetTop - window.innerHeight+200) this.setState({title:true});
         if(this.state.title && posY < this.refs.contacts.offsetTop - window.innerHeight+200) this.setState({title:false});
     }
@@ -97,4 +100,4 @@ class Contacts extends React.Component {
 
 const mapStateToProps = ({page:{contactTitle},errors}) => ({contactTitle,errors})
 
-export default connect(mapStateToProps,{setTopPos,addLetter})(Contacts)
+export default connect(mapStateToProps,{setTopPos,addLetter,handleMenu})(Contacts)

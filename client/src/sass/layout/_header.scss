@@ -2,10 +2,8 @@ header{
   .mobile-menu{
     position: fixed;
     width: 100%;
-    height: calc(100vh - 60px);
-    z-index: 100;
     background: $bg_dark;
-    margin-top: 60px;
+    top: 100px;
   }
   .mobile-bars{
     background: $bg_dark;
@@ -13,8 +11,13 @@ header{
     width: 100%;
     height: 60px!important;
   }
+  .on{
+    height: 100vh!important;
+    position: fixed;
+    top: 0;
+  }
   i{
-    z-index: 999;
+    z-index: 801;
     display: none!important;
     float: right;
     padding: 10px;
@@ -42,7 +45,11 @@ header{
     }
   }
   .menu-opac{
-    opacity: 0.3;
+    opacity: 0.1;
+    transition: 0.5s;
+    &:hover{
+      opacity: 1;
+    }
   }
   .menu{
     width: 100%;
