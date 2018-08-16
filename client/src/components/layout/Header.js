@@ -73,13 +73,8 @@ class Header extends React.Component{
                        {menuList}
                    </ul>
                </div>
-
-               {/*<div className={this.state.mobileMenu? 'mobile-bars on' : 'mobile-bars'}>*/}
-                   <div id="menu" className="mobile-bars">
-                   <i
-                       className={this.state.mobileMenu? "fas fa-bars on":"fas fa-bars"}
-                       onClick={this.onMobileClick}
-                   />
+               <div id="menu" className="mobile-bars">
+                   <i className="fas fa-bars" onClick={this.onMobileClick}/>
                    {this.state.mobileMenu &&
                        <div className="mobile-menu">
                            <ul>
