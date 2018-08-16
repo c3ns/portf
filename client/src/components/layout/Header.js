@@ -4,7 +4,7 @@ import {handleMenu} from '../../actions/menuAction';
 import {logout} from "../../actions/authAction";
 import {animateScroll as scroll} from 'react-scroll';
 import {Link} from 'react-router-dom';
-import { disableBodyScroll, enableBodyScroll ,clearAllBodyScrollLocks} from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll} from 'body-scroll-lock';
 
 class Header extends React.Component{
     state = {
@@ -16,7 +16,6 @@ class Header extends React.Component{
     targetElement = null;
     componentDidMount(){
         this.targetElement = document.querySelector('#menu');
-        console.log(this.targetElement);
     }
     componentDidUpdate(){
         const {menu} = this.state;
