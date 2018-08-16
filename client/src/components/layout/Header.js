@@ -16,6 +16,7 @@ class Header extends React.Component{
     targetElement = null;
     componentDidMount(){
         this.targetElement = document.querySelector('#menu');
+        console.log(this.targetElement);
     }
     componentDidUpdate(){
         const {menu} = this.state;
@@ -31,18 +32,15 @@ class Header extends React.Component{
         this.props.handleMenu(i);
         scroll.scrollTo(this.props.page.position[i]);
         this.state.mobileMenu && this.setState({mobileMenu:false});
-        enableBodyScroll();
+        enableBodyScroll(this.targetElement);
     };
-    onMobileClick = (e) => {
+    onMobileClick = () => {
         this.setState({mobileMenu:!this.state.mobileMenu});
         !this.state.mobileMenu
-            ? disableBodyScroll()
-            : enableBodyScroll();
-        e.preventDefault();
+            ? disableBodyScroll(this.targetElement)
+            : enableBodyScroll(this.targetElement);
     }
-    targetElement = (e) =>{
-        e.preventDefault();
-    }
+
 
     render(){
        const {list, active} = this.props.menu;
@@ -81,7 +79,6 @@ class Header extends React.Component{
                    <i
                        className={this.state.mobileMenu? "fas fa-bars on":"fas fa-bars"}
                        onClick={this.onMobileClick}
-                       onTouchEnd={this.targetElement}
                    />
                    {this.state.mobileMenu &&
                        <div className="mobile-menu">
