@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from "axios/index";
 import jwt from "jsonwebtoken";
-import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../../../actions/authAction';
 

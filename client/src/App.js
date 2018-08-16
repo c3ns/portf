@@ -31,7 +31,6 @@ class App extends React.Component {
       axios.defaults.headers.common['Authorization'] = token;
       const user = jwt.decode(token.split(' ')[1]);
       if(user) this.props.setUser(user);
-      console.log(axios);
   }
 
   render() {
