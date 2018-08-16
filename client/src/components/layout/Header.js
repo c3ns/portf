@@ -4,6 +4,7 @@ import {handleMenu} from '../../actions/menuAction';
 import {logout} from "../../actions/authAction";
 import {animateScroll as scroll} from 'react-scroll';
 import {Link} from 'react-router-dom';
+import BodyClassName from 'react-body-classname';
 
 class Header extends React.Component{
     state = {
@@ -65,11 +66,14 @@ class Header extends React.Component{
                <div className="mobile-bars">
                    <i className="fas fa-bars" onClick={this.onMobileClick}/>
                    {this.state.mobileMenu &&
-                       <div className="mobile-menu">
-                           <ul>
-                               {menuList}
-                           </ul>
-                       </div>}
+                       <BodyClassName className="overflow">
+                           <div className="mobile-menu">
+                               <ul>
+                                   {menuList}
+                               </ul>
+                           </div>
+                       </BodyClassName>}
+
                </div>
            </header>
        )

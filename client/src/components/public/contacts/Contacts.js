@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {setTopPos} from "../../../actions/elementsAction";
 import {CSSTransition} from "react-transition-group";
 import {addLetter} from '../../../actions/mailAction';
+import {animateScroll as scroll} from 'react-scroll';
+import {isMobile} from 'react-device-detect';
 
 class Contacts extends React.Component {
     state={
@@ -27,6 +29,9 @@ class Contacts extends React.Component {
         delete mail.title;
         this.props.addLetter(mail)
         this.setState({...this.state,name:'',email:'',subject:'',message:''});
+    }
+    scrollTop = () => {
+        scroll.scrollTo(0,0);
     }
     render(){
         const {name,email,subject,message} = this.state;
@@ -82,6 +87,9 @@ class Contacts extends React.Component {
                     <p className="errors">{errors.message}</p>
                     <button>Send</button>
                 </form>
+
+                {isMobile &&
+                    <i className="fas fa-angle-up" onClick={this.scrollTop}/>}
             </div>
         )
     }

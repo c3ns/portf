@@ -1,7 +1,7 @@
 import * as types from '../actions/types';
 
 const menu = {
-    list: ['home', 'skills', 'portfolio', 'contact me'],
+    list: ['home', 'skills', 'projects', 'contact me'],
     active: 0
 }
 
