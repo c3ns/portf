@@ -12,6 +12,7 @@ import experienceReducer from './reducers/experienceReducer';
 import pageReducer from './reducers/pageReducer';
 import authReducer from './reducers/authReducer';
 import errorsReducer from './reducers/errorsReducer';
+import { unregister } from './registerServiceWorker';
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -32,3 +33,4 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}><App /></Provider>
     , document.getElementById('root'));
+unregister();
