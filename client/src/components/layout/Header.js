@@ -4,6 +4,7 @@ import {handleMenu} from '../../actions/menuAction';
 import {logout} from "../../actions/authAction";
 import {animateScroll as scroll} from 'react-scroll';
 import {Link} from 'react-router-dom';
+import { disableBodyScroll, enableBodyScroll ,clearAllBodyScrollLocks} from 'body-scroll-lock';
 
 class Header extends React.Component{
     state = {
@@ -17,7 +18,6 @@ class Header extends React.Component{
         (!menu && this.props.posY >100) && this.setState({menu:true});
         (menu && this.props.posY <100) && this.setState({menu:false});
     }
-
     mouseEnterHandle = (index) => {
         const mouseEnter = this.state.mouseEnter.map((item,i) => i === index && !this.state.mouseEnter[i]);
         const width = this.state.width.map((w,i) => mouseEnter[i]? '100%' : '0%');
@@ -26,13 +26,14 @@ class Header extends React.Component{
     onMenuClick = (i) => {
         this.props.handleMenu(i);
         scroll.scrollTo(this.props.page.position[i]);
-        this.state.mobileMenu && this.setState({mobileMenu:false})
+        this.state.mobileMenu && this.setState({mobileMenu:false});
+        enableBodyScroll();
     };
     onMobileClick = () => {
         this.setState({mobileMenu:!this.state.mobileMenu});
         !this.state.mobileMenu
-            ? document.body.classList.add('overflow')
-            : document.body.classList.remove('overflow');
+            ? disableBodyScroll()
+            : enableBodyScroll();
     }
     render(){
        const {list, active} = this.props.menu;
