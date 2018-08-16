@@ -13,6 +13,10 @@ class Header extends React.Component{
         menu:false,
         mobileMenu:false
     }
+    targetElement = null;
+    componentDidMount(){
+        this.targetElement = document.querySelector('#menu');
+    }
     componentDidUpdate(){
         const {menu} = this.state;
         (!menu && this.props.posY >100) && this.setState({menu:true});
@@ -29,12 +33,17 @@ class Header extends React.Component{
         this.state.mobileMenu && this.setState({mobileMenu:false});
         enableBodyScroll();
     };
-    onMobileClick = () => {
+    onMobileClick = (e) => {
         this.setState({mobileMenu:!this.state.mobileMenu});
         !this.state.mobileMenu
             ? disableBodyScroll()
             : enableBodyScroll();
+        e.preventDefault();
     }
+    targetElement = (e) =>{
+        e.preventDefault();
+    }
+
     render(){
        const {list, active} = this.props.menu;
        const menuList = list.map((item,i) => {
@@ -68,8 +77,12 @@ class Header extends React.Component{
                </div>
 
                {/*<div className={this.state.mobileMenu? 'mobile-bars on' : 'mobile-bars'}>*/}
-                   <div className="mobile-bars">
-                   <i className={this.state.mobileMenu? "fas fa-bars on":"fas fa-bars"} onClick={this.onMobileClick}/>
+                   <div id="menu" className="mobile-bars">
+                   <i
+                       className={this.state.mobileMenu? "fas fa-bars on":"fas fa-bars"}
+                       onClick={this.onMobileClick}
+                       onTouchEnd={this.targetElement}
+                   />
                    {this.state.mobileMenu &&
                        <div className="mobile-menu">
                            <ul>
