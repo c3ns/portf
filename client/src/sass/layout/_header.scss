@@ -4,6 +4,8 @@ header{
     width: 100%;
     background: $bg_dark;
     top: 100px;
+    z-index: 500;
+    height: 100vh;
   }
   .mobile-bars{
     background: $bg_dark;
@@ -12,9 +14,8 @@ header{
     height: 60px!important;
   }
   .on{
-    height: 100vh!important;
     position: fixed;
-    top: 0;
+    right: 0;
   }
   i{
     z-index: 801;

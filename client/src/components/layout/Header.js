@@ -29,7 +29,10 @@ class Header extends React.Component{
         this.state.mobileMenu && this.setState({mobileMenu:false})
     };
     onMobileClick = () => {
-        this.setState({mobileMenu:!this.state.mobileMenu})
+        this.setState({mobileMenu:!this.state.mobileMenu});
+        !this.state.mobileMenu
+            ? document.body.classList.add('overflow')
+            : document.body.classList.remove('overflow');
     }
     render(){
        const {list, active} = this.props.menu;
@@ -63,8 +66,9 @@ class Header extends React.Component{
                    </ul>
                </div>
 
-               <div className={this.state.mobileMenu? 'mobile-bars on' : 'mobile-bars'}>
-                   <i className="fas fa-bars" onClick={this.onMobileClick}/>
+               {/*<div className={this.state.mobileMenu? 'mobile-bars on' : 'mobile-bars'}>*/}
+                   <div className="mobile-bars">
+                   <i className={this.state.mobileMenu? "fas fa-bars on":"fas fa-bars"} onClick={this.onMobileClick}/>
                    {this.state.mobileMenu &&
                        <div className="mobile-menu">
                            <ul>
