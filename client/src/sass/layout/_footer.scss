@@ -1,7 +1,23 @@
 footer{
+  padding-bottom: 15px;
   background: $bg_midlight;
-  p{
-    font-size: 18px;
-    line-height: 80px;
+  i{
+    font-size: 40px;
+    margin-top: 20px;
+    &:last-child{
+      margin-left: 20px;
+    }
+  }
+  .container{
+    .wrapper{
+      float: left;
+      padding-left: 30px;
+      p{
+        line-height: 50px;
+        padding-left: 10px;
+        font-size: 14px;
+        display: inline;
+      }
+    }
   }
 }
